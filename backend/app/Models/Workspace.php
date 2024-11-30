@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User;
 
-class workspaces extends Model
+class Workspace extends Model
 {
     use HasFactory;
 
@@ -16,6 +17,6 @@ class workspaces extends Model
     ];
      public function user()
     {
-        return $this->belongsTo(users::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Invitation extends Model
+class File extends Model
 {
-   use HasFactory;
+    use HasFactory;
 
-    protected $fillable = [
-        'recipient_email', 
+    protected $fillable = 
+    [
+        'name',
+        'path',
         'workspaces_id',
     ];
 
