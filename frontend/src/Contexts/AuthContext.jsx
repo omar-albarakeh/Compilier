@@ -16,4 +16,12 @@ const AuthProvider = ({ children }) => {
    const signup = (userData) => {
     setUser(userData);
   };
-}
+
+   return (
+    <AuthContext.Provider value={{ user, login, logout, signup }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export default AuthProvider;
