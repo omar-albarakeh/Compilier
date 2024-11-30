@@ -1,9 +1,19 @@
-import React from 'react'
+// App.js
+import React from "react";
+import AuthProvider from "./AuthContext";
+import Login from "./Login";
+import Signup from "./Signup";
 
 const App = () => {
   return (
-<div />
-  )
-}
+    <AuthProvider>
+      <div>
+        <h1>Authentication Example</h1>
+        <Login />
+        <Signup />
+      </div>
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;
