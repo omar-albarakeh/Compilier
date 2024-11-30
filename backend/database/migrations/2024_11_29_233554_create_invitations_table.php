@@ -9,10 +9,13 @@ return new class extends Migration
    
     public function up(): void
     {
-         Schema::create('invitations', function (Blueprint $table) {
+          Schema::create('invitations', function (Blueprint $table) {
             $table->id();
-            $table->string('recipient_email', 45);
-            $table->foreignId('workspaces_id')->constrained('workspaces')->onDelete('cascade');
+            $table->foreignId('sender_id')->constrained('users')->onDelete('cascade');
+            $table->string('recipient_email');
+            $table->string('token')->unique();
+            $table->timestamp('expires_at')->nullable();
+            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }
