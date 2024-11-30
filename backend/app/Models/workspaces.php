@@ -14,4 +14,8 @@ class workspaces extends Model
         'name',
         'users_id',
     ];
+     public function user()
+    {
+        return $this->belongsTo(users::class);
+    }
 }
