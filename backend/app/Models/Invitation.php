@@ -7,13 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invitation extends Model
 {
-    use HasFactory;
+   use HasFactory;
 
     protected $fillable = [
-        'sender_id',
-        'recipient_email',
-        'token',
-        'expires_at',
-        'status',
+        'recipient_email', 
+        'workspaces_id',
     ];
+
+    public function workspace()
+    {
+        return $this->belongsTo(Workspaces::class);
+    }
 }
