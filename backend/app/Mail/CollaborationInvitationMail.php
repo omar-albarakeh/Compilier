@@ -13,41 +13,17 @@ class CollaborationInvitationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     */
-    public function __construct()
+    public $invitationLink;
+
+    public function __construct($invitationLink)
     {
-        //
+        $this->invitationLink = $invitationLink;
     }
 
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
+    public function build()
     {
-        return new Envelope(
-            subject: 'Collaboration Invitation Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this->subject('Collaboration Invitation')
+                    ->view('emails.invitation')
+                    ->with('invitationLink', $this->invitationLink);
     }
 }
