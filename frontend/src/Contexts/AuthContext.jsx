@@ -12,4 +12,8 @@ const AuthProvider = ({ children }) => {
     const logout = () => {
     setUser(null);
   };
+
+   const signup = (userData) => {
+    setUser(userData);
+  };
 }
