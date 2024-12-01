@@ -23,8 +23,19 @@ const Dashboard = () => {
     window.location.href = '/login';
   };
   return (
-    <div>Dashboard</div>
-  )
-}
+    <div>
+      <h2>Dashboard</h2>
+      {user ? (
+        <div>
+          <p>Welcome, {user.username}!</p>
+          <p>Email: {user.email}</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;
