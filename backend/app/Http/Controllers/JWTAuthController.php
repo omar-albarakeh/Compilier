@@ -74,4 +74,14 @@ class JWTAuthController extends Controller
         return response()->json(['user' => $user], 200);
     }
 
+     public function logout()
+    {
+        try {
+            JWTAuth::invalidate(JWTAuth::getToken());
+            return response()->json(['message' => 'Successfully logged out'], 200);
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'Failed to logout'], 500);
+        }
+    }
 }
+
