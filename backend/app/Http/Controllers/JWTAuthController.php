@@ -10,7 +10,8 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class JWTAuthController extends Controller
-{public function register(Request $request)
+{
+    public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'username' => 'required|string|max:255|unique:users',
@@ -65,7 +66,7 @@ class JWTAuthController extends Controller
         ], 200);
     }
 
-     public function getUser()
+    public function getUser()
     {
         try {
             $user = JWTAuth::parseToken()->authenticate();
@@ -79,7 +80,7 @@ class JWTAuthController extends Controller
         return response()->json(['user' => $user], 200);
     }
 
-     public function logout()
+    public function logout()
     {
         try {
             JWTAuth::invalidate(JWTAuth::getToken());
@@ -89,4 +90,3 @@ class JWTAuthController extends Controller
         }
     }
 }
-
