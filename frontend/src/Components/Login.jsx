@@ -21,8 +21,16 @@ const Login = () => {
     }
   };
   return (
-    <div>Login</div>
-  )
-}
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <input name="username" type="text" placeholder="Username" onChange={handleChange} />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+        <button type="submit">Login</button>
+      </form>
+      {message && <p>{message}</p>}
+    </div>
+  );
+};
 
-export default Login
+export default Login;
