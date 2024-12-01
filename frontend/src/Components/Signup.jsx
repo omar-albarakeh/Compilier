@@ -18,9 +18,18 @@ const Register = () => {
       setMessage('Error: ' + (error.response?.data?.errors || 'Something went wrong.'));
     }
   };
-  return (
-    <div>Signup</div>
-  )
-}
+   return (
+    <div>
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <input name="username" type="text" placeholder="Username" onChange={handleChange} />
+        <input name="email" type="email" placeholder="Email" onChange={handleChange} />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+        <button type="submit">Register</button>
+      </form>
+      {message && <p>{message}</p>}
+    </div>
+  );
+};
 
-export default Signup
+export default Register;
